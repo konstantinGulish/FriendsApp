@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>AddFriend</title>
+</head>
+<body>
+<ul>
+    <a href = "/">Home</a>
+    <a href = "/listfriends">List of Friends</a>
+    <a href = "/logout">Logout</a>
+
+</ul>
+<h1>Add Friend</h1>
+<form th:action="@{/savefriend}" th:object="${friend}" method="post" enctype="multipart/form-data">
+    <div class="container">
+        <input type="hidden" th:field="*{id}">
+        Friend's Name:
+        <input type="text" th:field="*{name}"> <br/>
+        Rank:
+        <input type ="text" th:field="*{rank}"><br/>
+        <div>
+            <label class="btn btn-default btn-file">Choose Friend's Image
+                <input type="file" name="file"></label>
+        </div>
+    </div>
+    <button type="submit">Save Friend</button>
+</form>
+</body>
+</html>

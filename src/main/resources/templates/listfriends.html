@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>FriendList</title>
+</head>
+<body>
+<ul>
+    <a href = "/">Home</a>
+    <a href = "/addfriend">Add Friend</a>
+    <a href = "/logout">Logout</a>
+
+</ul>
+<h1>List of Friends</h1>
+<div th:each="eachFriend:${friends}">
+    <p th:text="'The name of the fried is ...' + ${eachFriend.name}">Name</p>
+    <p th:text="'The friend was created by...' + ${eachFriend.createdBy}">Created By</p>
+    <p th:text="'The rank of the friends is ...' + ${eachFriend.rank}">Rank</p>
+    <div class="col-4">
+        <img th:src="${eachFriend.img}">
+    </div>
+</div>
+</body>
+</html>
