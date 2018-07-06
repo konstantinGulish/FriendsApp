@@ -1,30 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>AddFriend</title>
+    <link href="/css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 <ul>
-    <a href = "/">Home</a>
-    <a href = "/listfriends">List of Friends</a>
-    <a href = "/logout">Logout</a>
-
+    <a class="navbar-brand btn btn-primary" href = "/">Home</a>
+    <a class="navbar-brand" href = "/listfriends">Show My Friends</a>
+    <a class="navbar-brand btn btn-danger" href = "/logout">Logout</a>
 </ul>
-<h1>Add Friend</h1>
+</nav>
+<main role="main" class="container">
+<div class = "jumbotron">
+<h1 class="bg-dark text-white text-center display-3">Add Friend</h1>
+</div>
 <form th:action="@{/savefriend}" th:object="${friend}" method="post" enctype="multipart/form-data">
     <div class="container">
         <input type="hidden" th:field="*{id}">
-        Friend's Name:
-        <input type="text" th:field="*{name}"> <br/>
-        Rank:
-        <input type ="text" th:field="*{rank}"><br/>
+        <div class="form-group">
+            <label>Friend's Name: </label>
+        <input type="text" class = "form-control" th:field="*{name}"> <br/>
+        </div>
+        <div class="form-group">
+        <label>Rank:</label>
+        <input type ="text" class = "form-control" th:field="*{rank}"><br/>
+        </div>
         <div>
             <label class="btn btn-default btn-file">Choose Friend's Image
                 <input type="file" name="file"></label>
         </div>
     </div>
-    <button type="submit">Save Friend</button>
+    <button type="submit"  class="btn btn-primary">Save Friend</button>
 </form>
+</main><!-- /.container -->
 </body>
 </html>

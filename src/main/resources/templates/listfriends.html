@@ -3,22 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>FriendList</title>
+    <link href="/css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 <ul>
-    <a href = "/">Home</a>
-    <a href = "/addfriend">Add Friend</a>
-    <a href = "/logout">Logout</a>
-
+    <a class="navbar-brand btn btn-primary" href = "/">Home</a>
+    <a class="navbar-brand" href = "/addfriend">Add Friend</a>
+    <a class="navbar-brand btn btn-danger" href = "/logout">Logout</a>
 </ul>
-<h1>List of Friends</h1>
-<div th:each="eachFriend:${friends}">
-    <p th:text="'The name of the fried is ...' + ${eachFriend.name}">Name</p>
-    <p th:text="'The friend was created by...' + ${eachFriend.createdBy}">Created By</p>
-    <p th:text="'The rank of the friends is ...' + ${eachFriend.rank}">Rank</p>
-    <div class="col-4">
-        <img th:src="${eachFriend.img}">
-    </div>
+</nav>
+<main role="main" class="container">
+<div class="jumbotron">
+<h1 class="bg-dark text-white text-center display-3">My Friends</h1>
 </div>
+<div th:each="eachFriend:${friends}">
+    <ul class="list-group">
+    <li class="list-group-item list-group-item-primary display-3" th:text="${eachFriend.name}">Name</li>
+    <li class="list-group-item list-group-item-info font-italic" th:text="${eachFriend.rank}">Rank</li>
+    <li class="list-group-item"><img class="float-left" th:src="${eachFriend.img}"></li>
+    </ul>
+</div>
+</main><!-- /.container -->
 </body>
 </html>
