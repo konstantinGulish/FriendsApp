@@ -7,7 +7,10 @@
     <link href="/css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+<div class = "jumbotron">
+    <h1 class="text-black-50 text-center display-4">Add Friend</h1>
+</div>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
 <ul>
     <a class="navbar-brand btn btn-primary" href = "/">Home</a>
     <a class="navbar-brand" href = "/listfriends">Show My Friends</a>
@@ -15,9 +18,6 @@
 </ul>
 </nav>
 <main role="main" class="container">
-<div class = "jumbotron">
-<h1 class="bg-dark text-white text-center display-3">Add Friend</h1>
-</div>
 <form th:action="@{/savefriend}" th:object="${friend}" method="post" enctype="multipart/form-data">
     <div class="container">
         <input type="hidden" th:field="*{id}">
